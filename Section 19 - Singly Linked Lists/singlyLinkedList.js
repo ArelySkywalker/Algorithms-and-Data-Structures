@@ -131,4 +131,15 @@ class SlinglyLinkedList {
 
 var list = new SlinglyLinkedList();
 list.push("HELLO");
-list.puah("GOODBYE");
+list.push("GOODBYE");
+list.push("!");
+list.pop();
+list.unshift("<3");
+list.get(2);
+list.set(2, ":)");
+list.insert(1, "???");
+list.remove(1);
+list.reverse();
+list.print();
+list.reverse();
+list.print();
