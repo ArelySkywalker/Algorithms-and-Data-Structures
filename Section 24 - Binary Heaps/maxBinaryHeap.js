@@ -29,11 +29,11 @@ class maxBinaryHeap {
 	extractMax() {
 		const max = this.values[0];
 		const end = this.values.pop();
-		this.values[0] = end;
-
-		// trickle down
-		this.sinkDown();
-		
+		if(this.values.length > 0) {
+			this.values[0] = end;
+			// trickle down
+			this.sinkDown();
+		}
 		return max;
 	}
 
