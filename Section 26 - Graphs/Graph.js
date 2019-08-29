@@ -26,10 +26,25 @@ class Graph {
 			v => v !== vertex1
 		);
 	}
+
+	removeVertex(vertex) {
+		while(this.adjacencyList[vertex].length) {
+			const adjacentVertex = this.adjacencyList[vertex].pop();
+			this.removeEdge(vertex, adjacentVertex);
+		}
+		delete this.adjacencyList[vertex];
+	}
 }
 
 var gr = new Graph();
+gr.addVertex("Dallas");
 gr.addVertex("Tokyo");
-gr.addVertex("San Diego");
-gr.addVertex("San Francisco");
-gr.addEdge("San Diego", "San Francisco");
+gr.addVertex("Aspen");
+gr.addVertex("Los Angeles");
+gr.addVertex("Hong Kong");
+gr.addEdge("Dallas", "Tokyo");
+gr.addEdge("Dallas", "Aspen");
+gr.addEdge("Hong Kong", "Tokyo");
+gr.addEdge("Hong Kong", "Dallas");
+gr.addEdge("Los Angeles", "Hong Kong");
+gr.addEdge("Los Angeles", "Aspen");
