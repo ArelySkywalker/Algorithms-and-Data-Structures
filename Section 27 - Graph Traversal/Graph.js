@@ -78,6 +78,29 @@ class Graph {
 		}
 		return result;
 	}
+
+	breadthFirst(start) {
+		const queue = [start];
+		const result = [];
+		const visited = {};
+		const adjacencyList = this.adjacencyList;
+		let currentVertex;
+
+		visited[start] = true;
+
+		while(queue.length) {
+			currentVertex = queue.shift();
+			result.push(currentVertex);
+
+			adjacencyList[currentVertex].forEach(neighbor => {
+				if(!visited[neighbor]) {
+					visited[neighbor] = true;
+					queue.push(neighbor);
+				}
+			});
+		}
+		return result;
+	}
 }
 
 var gr = new Graph();
