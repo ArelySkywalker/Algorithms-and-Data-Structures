@@ -54,6 +54,30 @@ class Graph {
 
 		return result;
 	}
+
+	depthFirstIterative(start) {
+		const stack = [];
+		const result = [];
+		const visited = {};
+		const adjacencyList = this.adjacencyList;
+		let currentVertex;
+
+		stack.push(start);
+		visited[start] = true;
+
+		while(stack.length) {
+			currentVertex = stack.pop();
+			result.push(currentVertex);
+
+			adjacencyList[currentVertex].forEach(neighbor => {
+				if(!visited[neighbor]) {
+					visited[neighbor] = true;
+					stack.push(neighbor);
+				}
+			});
+		}
+		return result;
+	}
 }
 
 var gr = new Graph();
